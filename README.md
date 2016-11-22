@@ -28,4 +28,4 @@ mongod.exe -dbpath [path]
 - Hibernate Validator
 - DBUnit
 - Freemarker
-- Olingo V4.0
+- Odata V4 (Olingo)
