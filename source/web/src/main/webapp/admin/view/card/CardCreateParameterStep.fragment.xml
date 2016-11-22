@@ -1,0 +1,45 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<VBox class="sapUiSmallMargin">
+		<Panel width="auto">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>Card.title.parameter}" />
+				</Toolbar>
+			</headerToolbar>
+			<Table id="tblCardParameters" items="{/Card/CardParameters}" >
+				<columns>
+					<Column width="30%">
+						<Label text="{i18n>CardParameter.name}"/>
+					</Column>
+					<Column width="25%">
+						<Label text="{i18n>CardParameter.description}" />
+					</Column>
+					<Column width="20%">
+						<Label text="{i18n>CardParameter.value}" />
+					</Column>
+					<Column width="20%">
+						<Label text="{i18n>CardParameter.type}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<HBox>
+								<Text text="{TemplateParameter/Name}" visible="true" />
+							</HBox>
+							<HBox>
+								<Text text="{TemplateParameter/Description}" visible="true"/>
+							</HBox>
+							<HBox>
+								<Input value="{path:'Value', type: 'sap.ui.model.type.String', constraints:{maxLength:250}}" valueStateText="{i18n>CardParameter.value.size}" id="Value" placeholder="{i18n>CardParameter.value.size}"/>
+							</HBox>
+							<HBox>
+								<Text text="{TemplateParameter/Type}" visible="true"/>
+							</HBox>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</Panel>
+	</VBox>
+</core:FragmentDefinition>

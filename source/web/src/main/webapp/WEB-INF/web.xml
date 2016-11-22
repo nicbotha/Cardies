@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<session-config>
+		<session-timeout>10</session-timeout>
+	</session-config>
+
+	<resource-ref>
+		<res-ref-name>jdbc/DefaultDB</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+	</resource-ref>
+
+	<resource-ref>
+		<res-ref-name>TenantContext</res-ref-name>
+		<res-type>com.sap.cloud.account.TenantContext</res-type>
+	</resource-ref>
+
+	<resource-ref>
+		<res-ref-name>EcmService</res-ref-name>
+		<res-type>com.sap.ecm.api.EcmService</res-type>
+	</resource-ref>
+
+	<context-param>
+		<param-name>productionMode</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>spring.profiles.active</param-name>
+		<param-value>prod</param-value>
+
+	</context-param>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- TODO Enable CSRF, see https://help.hana.ondemand.com/help/frameset.htm?e5be9994bb571014b575a785961062db.html -->
+
+	<servlet>
+		<servlet-name>odata</servlet-name>
+		<servlet-class>au.web.ODataServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>odata</servlet-name>
+		<url-pattern>/odata/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>fileresource</servlet-name>
+		<servlet-class>au.web.FileResourceServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>fileresource</servlet-name>
+		<url-pattern>/fileresource/*</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>template</servlet-name>
+		<servlet-class>au.web.TemplateServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>template</servlet-name>
+		<url-pattern>/template/*</url-pattern>
+	</servlet-mapping>
+
+</web-app>

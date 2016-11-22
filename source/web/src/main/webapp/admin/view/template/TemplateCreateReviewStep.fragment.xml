@@ -1,0 +1,103 @@
+<core:FragmentDefinition
+		height="100%"
+		xmlns:layout="sap.ui.layout"
+		xmlns:f="sap.ui.layout.form"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m">
+		<Page id="templateWizardReviewPage" showHeader="false">
+			<content>
+				<f:SimpleForm 
+					minWidth="1024"
+					editable="false"
+					layout="ResponsiveGridLayout">
+					<f:toolbar>
+						<Toolbar>
+							<Title text="{i18n>Template.title.info}" level="H4" titelStyle="H4"/>
+							<ToolbarSpacer/>
+							<Button press="editStepOne" icon="sap-icon://edit"/>
+						</Toolbar>
+					</f:toolbar>
+					<f:content>
+						<Label text="{i18n>Template.name}" />
+						<Text text="{/Template/Name}" />
+						<Label text="{i18n>Template.description}" />
+						<Text text="{/Template/Description}" />
+					</f:content>
+				</f:SimpleForm>
+				
+				<f:SimpleForm 
+					minWidth="1024"
+					editable="false"
+					layout="ResponsiveGridLayout">
+					<f:toolbar>
+						<Toolbar>
+							<Title text="{i18n>Template.title.fileresource}" level="H4" titelStyle="H4"/>
+							<ToolbarSpacer/>
+							<Button press="editStepTwo" icon="sap-icon://edit"/>
+						</Toolbar>
+					</f:toolbar>
+					<f:content>
+						<Label text="{i18n>FileResource.name}" />
+						<Text text="{/Template/FileResource}" />
+					</f:content>
+				</f:SimpleForm>
+				
+				<f:SimpleForm 
+					minWidth="1024"
+					editable="false"
+					layout="ResponsiveGridLayout">
+					<f:toolbar>
+						<Toolbar>
+							<Title text="{i18n>Template.title.parameter}" level="H4" titelStyle="H4"/>
+							<ToolbarSpacer/>
+							<Button press="editStepThree" icon="sap-icon://edit"/>
+						</Toolbar>
+					</f:toolbar>
+					<f:content>
+						<Table items="{/Template/TemplateParameters}" class="sapUiSizeCompact">
+							<columns>
+								<Column>
+									<Label text="{i18n>TemplateParameter.name}"/>
+								</Column>
+								<Column>
+									<Label text="{i18n>TemplateParameter.description}" />
+								</Column>
+								<Column>
+									<Label text="{i18n>TemplateParameter.defaultvalue}" />
+								</Column>
+								<Column>
+									<Label text="{i18n>TemplateParameter.type}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<HBox>
+											<Text text="{Name}"/>
+										</HBox>
+										<HBox>
+											<Text text="{Description}"/>
+										</HBox>
+										<HBox>
+											<Text text="{DefaultValues}"/>
+										</HBox>
+										<HBox>
+											<Text text="{Type}"/>											
+										</HBox>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</f:content>
+				</f:SimpleForm>
+			</content>
+			<footer>
+				<Bar>
+					<contentRight>
+						<Button text="{i18n>Label.Save}" type="Emphasized" press="handleWizardSubmit" />
+						<Button text="{i18n>Label.Cancel}" type="Reject" press="handleWizardCancel" />
+					</contentRight>
+				</Bar>
+			</footer>
+		</Page>
+</core:FragmentDefinition>

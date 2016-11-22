@@ -1,0 +1,46 @@
+<mvc:View displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:tnt="sap.tnt" controllerName="cardies.adminapp.controller.App">
+<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<Button id="sideNavigationToggleButton" icon="sap-icon://menu2" type="Transparent" press="onSideNavigation">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+				<ToolbarSpacer />
+				<Label class="title" text="{i18n>appTitle}" wrapping="false">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Disappear" />
+					</layoutData>
+				</Label>
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation id="sideNavigation" expanded="false" itemSelect="onItemSelect">
+				<tnt:NavigationList items="{path: '/navigation'}">
+					<tnt:NavigationListItem text="{title}"
+											icon="{icon}"
+											enabled="{enabled}"
+											expanded="{expanded}"
+											items="{items}"
+											key="{key}">
+						<tnt:NavigationListItem text="{title}"
+												key="{key}"
+												enabled="{enabled}">
+						</tnt:NavigationListItem>
+					</tnt:NavigationListItem>
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList items="{path: '/fixedNavigation'}">
+						<tnt:NavigationListItem text="{title}"
+												icon="{icon}">
+						</tnt:NavigationListItem>
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="app"></NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>

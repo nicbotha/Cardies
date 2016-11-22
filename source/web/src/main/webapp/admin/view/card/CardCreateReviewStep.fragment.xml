@@ -1,0 +1,120 @@
+<core:FragmentDefinition
+		height="100%"
+		xmlns:layout="sap.ui.layout"
+		xmlns:f="sap.ui.layout.form"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m">
+		<Page id="cardWizardReviewPage" showHeader="false">
+			<content>
+				<f:SimpleForm 
+					minWidth="1024"
+					editable="false"
+					layout="ResponsiveGridLayout">
+					<f:toolbar>
+						<Toolbar>
+							<Title text="{i18n>Card.title.info}" level="H4" titelStyle="H4"/>
+							<ToolbarSpacer/>
+							<Button press="editStepOne" icon="sap-icon://edit"/>
+						</Toolbar>
+					</f:toolbar>
+					<f:content>
+						<Label text="{i18n>Card.name}" />
+						<Text text="{/Card/Name}" />
+						<Label text="{i18n>Card.publishdate}" />
+						<Text text="{/Card/PublishDate}" />
+					</f:content>
+				</f:SimpleForm>
+				
+				<f:SimpleForm 
+					minWidth="1024"
+					editable="false"
+					layout="ResponsiveGridLayout">
+					<f:toolbar>
+						<Toolbar>
+							<Title text="{i18n>Card.title.channel}" level="H4" titelStyle="H4"/>
+							<ToolbarSpacer/>
+							<Button press="editStepTwo" icon="sap-icon://edit"/>
+						</Toolbar>
+					</f:toolbar>
+					<f:content>
+						<Label text="{i18n>Card.channel}" />
+						<Text text="{/Card/Channel/Name}" />
+					</f:content>
+				</f:SimpleForm>
+				
+				<f:SimpleForm 
+					minWidth="1024"
+					editable="false"
+					layout="ResponsiveGridLayout">
+					<f:toolbar>
+						<Toolbar>
+							<Title text="{i18n>Card.title.template}" level="H4" titelStyle="H4"/>
+							<ToolbarSpacer/>
+							<Button press="editStepThree" icon="sap-icon://edit"/>
+						</Toolbar>
+					</f:toolbar>
+					<f:content>
+						<Label text="{i18n>Card.template}" />
+						<Text text="{/Card/Template/Name}" />
+					</f:content>
+				</f:SimpleForm>
+				
+				<f:SimpleForm 
+					minWidth="1024"
+					editable="false"
+					layout="ResponsiveGridLayout">
+					<f:toolbar>
+						<Toolbar>
+							<Title text="{i18n>Card.title.parameter}" level="H4" titelStyle="H4"/>
+							<ToolbarSpacer/>
+							<Button press="editStepFour" icon="sap-icon://edit"/>
+						</Toolbar>
+					</f:toolbar>
+					<f:content>
+						<Table items="{/Card/CardParameters}" class="sapUiSizeCompact">
+							<columns>
+								<Column width="30%">
+									<Label text="{i18n>CardParameter.name}"/>
+								</Column>
+								<Column width="25%">
+									<Label text="{i18n>CardParameter.description}" />
+								</Column>
+								<Column width="20%">
+									<Label text="{i18n>CardParameter.value}" />
+								</Column>
+								<Column width="20%">
+									<Label text="{i18n>CardParameter.type}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<HBox>
+											<Text text="{TemplateParameter/Name}"/>
+										</HBox>
+										<HBox>
+											<Text text="{TemplateParameter/Description}"/>
+										</HBox>
+										<HBox>
+											<Text text="{Value}"/>
+										</HBox>
+										<HBox>
+											<Text text="{TemplateParameter/Type}"/>											
+										</HBox>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</f:content>
+				</f:SimpleForm>
+			</content>
+			<footer>
+				<Bar>
+					<contentRight>
+						<Button text="{i18n>Label.Save}" type="Emphasized" press="onWizardSubmit" />
+						<Button text="{i18n>Label.Cancel}" type="Reject" press="onWizardCancel" />
+					</contentRight>
+				</Bar>
+			</footer>
+		</Page>
+</core:FragmentDefinition>

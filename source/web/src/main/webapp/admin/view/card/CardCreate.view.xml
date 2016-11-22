@@ -1,0 +1,39 @@
+<mvc:View 
+	controllerName="cardies.adminapp.controller.card.CardCreate" 
+	xmlns="sap.m" 
+	xmlns:layout="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:mvc="sap.ui.core.mvc"
+	busyIndicatorDelay="0"
+	height="100%">
+	<NavContainer id="wizardNavContainer">
+		<pages>
+			<Page id="wizardContentPage" showHeader="false">
+				<content>
+					<Wizard id="createWizard" complete="onWizardCompleted">
+						<WizardStep id="CardInfoStep" title="{i18n>Card.title.info}" validated="false">
+							<core:Fragment fragmentName="cardies.adminapp.view.card.CardCreateInfoStep" type="XML" />
+						</WizardStep>
+						<WizardStep id="CardChannelStep" title="{i18n>Card.title.channel}" validated="false">
+							<core:Fragment fragmentName="cardies.adminapp.view.card.CardCreateChannelStep" type="XML" />
+						</WizardStep>
+						<WizardStep id="CardTemplateStep" title="{i18n>Card.title.template}" validated="false">
+							<core:Fragment fragmentName="cardies.adminapp.view.card.CardCreateTemplateStep" type="XML" />
+						</WizardStep>
+						<WizardStep id="CardParameterStep" validated="true" title="{i18n>Card.title.parameter}">
+							<core:Fragment fragmentName="cardies.adminapp.view.card.CardCreateParameterStep" type="XML" />
+						</WizardStep>
+					</Wizard>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer />
+						<Button text="{i18n>Label.Cancel}" type="Reject" press="onWizardCancel" />
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</NavContainer>
+</mvc:View>

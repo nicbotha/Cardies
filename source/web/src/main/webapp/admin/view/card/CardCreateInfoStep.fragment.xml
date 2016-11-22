@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+	<form:SimpleForm editable="true">
+		<form:content>
+			<Label text="{i18n>Card.name}" required="true" />
+			<Input value="{/Card/Name}" valueStateText="{i18n>Card.name.size}" valueState="{/CardNameState}" id="CardName" liveChange="onInfoChangeValidate" placeholder="{i18n>Card.name.size}"/>
+			<Label text="{i18n>Card.publishdate}" required="false" />
+			<DatePicker value="{/Card/PublishDate}" valueStateText="{i18n>Card.publishdate.size}" valueState="{/CardPublishDateState}" id="CardPublishDate" liveChange="onInfoChangeValidate" placeholder="{i18n>Card.publishdate.size}" />
+		</form:content>
+	</form:SimpleForm>
+</core:FragmentDefinition>

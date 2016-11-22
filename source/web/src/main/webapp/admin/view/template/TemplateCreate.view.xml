@@ -1,0 +1,36 @@
+<mvc:View 
+	controllerName="cardies.adminapp.controller.template.TemplateCreate" 
+	xmlns="sap.m" 
+	xmlns:layout="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:mvc="sap.ui.core.mvc"
+	busyIndicatorDelay="0"
+	height="100%">
+	<NavContainer id="wizardNavContainer">
+		<pages>
+			<Page id="wizardContentPage" showHeader="false">
+				<content>
+					<Wizard id="CreateTemplateWizard" complete="wizardCompletedHandler">
+						<WizardStep id="TemplateInfoStep" title="{i18n>Template.title.info}" validated="false">
+							<core:Fragment fragmentName="cardies.adminapp.view.template.TemplateCreateInfoStep" type="XML" />
+						</WizardStep>
+						<WizardStep id="TemplateFileResourceStep" title="{i18n>Template.title.fileresource}" validated="false" activate="templateInfoValidation">
+							<core:Fragment fragmentName="cardies.adminapp.view.template.TemplateCreateFileResourceStep" type="XML" />
+						</WizardStep>
+						<WizardStep id="TemplateParameterStep" validated="true" title="{i18n>Template.title.parameter}">
+							<core:Fragment fragmentName="cardies.adminapp.view.template.TemplateCreateParameterStep" type="XML" />
+						</WizardStep>
+					</Wizard>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer />
+						<Button text="{i18n>Label.Cancel}" type="Reject" press="handleWizardCancel" />
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</NavContainer>
+</mvc:View>

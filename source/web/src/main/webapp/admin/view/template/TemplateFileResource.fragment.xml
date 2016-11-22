@@ -1,0 +1,97 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<VBox class="sapUiSmallMargin">
+		<Panel width="auto">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>Template.title.fileresource}" />
+				</Toolbar>
+			</headerToolbar>
+			<FlexBox alignItems="Start" justifyContent="Center">
+				<VBox>
+					<Input value="{Template>/FileResource/Name}" id="TemplateFileResource" placeholder="{i18n>Template.fileresource}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onChangeFileResourcePress" visible="{path: 'stateModel>/editState', formatter: '.enableControl'}"/>
+					<Link id="previewLinkId" target="_blank" href="/web/fileresource?ID={Template>/FileResource/DocStoreId}" text="{i18n>Label.Preview}" visible="{path: 'stateModel>/editState', formatter: '.disableControl'}"/>
+				</VBox>
+			</FlexBox>
+		</Panel>
+		<Panel width="auto" visible="{path: 'stateModel>/editState', formatter: '.disableControl'}" expandable="true" expanded="false">
+		<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>FileResource.metadata}" />
+				</Toolbar>
+			</headerToolbar>
+			<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+				<f:content>
+					<Label text="{i18n>FileResource.name}" />
+					<Text text="{Template>/FileResource/Name}" />
+					<Label text="{i18n>FileResource.description}" />
+					<Text text="{Template>/FileResource/Description}" />
+					<Label text="{i18n>FileResource.tags}" />
+					<Text text="{Template>/FileResource/Tags}" />
+					<Label text="{i18n>FileResource.type}" />
+					<Text text="{Template>/FileResource/Type}" />					
+				</f:content>
+			</f:SimpleForm>
+		</Panel>
+		
+		<Panel width="auto" expandable="true" expanded="false">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>Template.title.parameter}" />
+				</Toolbar>
+			</headerToolbar>
+			<Table items="{Template>/TemplateParameters}" >
+				<headerToolbar>
+					<OverflowToolbar visible="{path: 'stateModel>/editState', formatter: '.enableControl'}">
+						<ToolbarSpacer/>
+						<OverflowToolbarButton type="Transparent" text="Add" icon="sap-icon://add" press="onAddParameterPress"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="30%">
+						<Label text="{i18n>TemplateParameter.name}"/>
+					</Column>
+					<Column width="25%">
+						<Label text="{i18n>TemplateParameter.description}" />
+					</Column>
+					<Column width="20%">
+						<Label text="{i18n>TemplateParameter.defaultvalue}" />
+					</Column>
+					<Column width="20%">
+						<Label text="{i18n>TemplateParameter.type}"/>
+					</Column>
+					<Column width="5%"/>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<HBox>
+								<Text text="{Template>Name}" visible="{path: 'stateModel>/editState', formatter: '.disableControl'}" />
+								<Input value="{path:'Template>Name', type: 'sap.ui.model.type.String', constraints:{maxLength:50}}" visible="{path: 'stateModel>/editState', formatter: '.enableControl'}" placeholder="{i18n>TemplateParameter.name.size}"/>
+							</HBox>
+							<HBox>
+								<Text text="{Template>Description}" visible="{path: 'stateModel>/editState', formatter: '.disableControl'}"/>
+								<Input value="{path:'Template>Description', type: 'sap.ui.model.type.String', constraints:{maxLength:250}}" visible="{path: 'stateModel>/editState', formatter: '.enableControl'}" placeholder="{i18n>TemplateParameter.description.size}"/>
+							</HBox>
+							<HBox>
+								<Text text="{Template>DefaultValues}" visible="{path: 'stateModel>/editState', formatter: '.disableControl'}"/>
+								<Input value="{path:'Template>DefaultValues', type: 'sap.ui.model.type.String', constraints:{maxLength:250}}" visible="{path: 'stateModel>/editState', formatter: '.enableControl'}" placeholder="{i18n>TemplateParameter.defaultvalue.size}"/>
+							</HBox>
+							<HBox>
+								<Text text="{Template>Type}" visible="{path: 'stateModel>/editState', formatter: '.disableControl'}"/>
+								<ComboBox items="{parameterTypes>/items}" selectedKey="{Template>Type}" visible="{path: 'stateModel>/editState', formatter: '.enableControl'}">
+									<items>
+										<core:Item key="{parameterTypes>key}" text="{parameterTypes>text}" />
+									</items>
+								</ComboBox>
+							</HBox>
+							<HBox>
+								<core:Icon src="sap-icon://add" visible="{path: 'stateModel>/createNewParameter', formatter: '.enableControl'}" press="onAddParameterPress" />
+								<core:Icon src="sap-icon://delete" visible="{path: 'stateModel>/editState', formatter: '.enableControl'}" press="onDeleteParameterPress" app:paramid="{Template>ID}"/>
+							</HBox>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</Panel>
+	</VBox>
+</core:FragmentDefinition>

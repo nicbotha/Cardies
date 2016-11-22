@@ -1,0 +1,38 @@
+<core:FragmentDefinition 
+	xmlns="sap.m" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form" 
+	xmlns:core="sap.ui.core" 
+	xmlns:u="sap.ui.unified"
+	xmlns:smartField="sap.ui.comp.smartfield">
+	<VBox class="sapUiSmallMargin">
+		<Panel width="auto">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>Card.title.info}" />
+				</Toolbar>
+			</headerToolbar>
+			<f:SimpleForm maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4" emptySpanL="1" emptySpanM="1" columnsL="1" columnsM="1">
+				<f:content>
+					<Label text="{i18n>Card.name}" />
+					<Input value="{path:'Card>/Name', type: 'sap.ui.model.type.String', constraints:{maxLength:50}}" id="txtCardName" editable="{path: 'stateModel>/editState', formatter: '.enableControl'}" placeholder="{i18n>Card.name.size}"/>
+					<Label text="{i18n>Card.publishdate}" />
+					<Input value="{path:'Card>/PublishDate', type: 'sap.ui.model.type.String', constraints:{maxLength:50}}" id="txtPublishDate" editable="{path: 'stateModel>/editState', formatter: '.enableControl'}" placeholder="{i18n>Card.publishdate.size}"/>
+				</f:content>
+			</f:SimpleForm>
+		</Panel>
+		<Panel width="auto" expandable="true" expanded="false">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>Card.title.channel}" />
+				</Toolbar>
+			</headerToolbar>
+			<f:SimpleForm maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4" emptySpanL="1" emptySpanM="1" columnsL="1" columnsM="1">
+				<f:content>
+					<Label text="{i18n>Card.channel}" />
+					<Input value="{Card>/Channel/Name}" id="CardChannel" placeholder="{i18n>Card.channel}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onChangeChannelPress" editable="{path: 'stateModel>/editState', formatter: '.enableControl'}"/>
+				</f:content>
+			</f:SimpleForm>
+		</Panel>
+	</VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,31 @@
+<mvc:View controllerName="cardies.adminapp.controller.Home" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+
+				<StandardTile
+					press="onFileResourcePress"
+					icon="sap-icon://document"
+					type=""
+					number=""
+					numberUnit=""
+					title="{i18n>Tile.Header.FileResource}"
+					info="{i18n>Tile.Subheader.FileResource}"
+					infoState="" />
+				<StandardTile
+					press="onTemplatePress"
+					icon="sap-icon://attachment-html"
+					type=""
+					number=""
+					numberUnit=""
+					title="{i18n>Tile.Header.Template}"
+					info="{i18n>Tile.Subheader.Template}"
+					infoState="" />
+				<StandardTile
+					press="onCardPress"
+					icon="sap-icon://card"
+					type=""
+					number=""
+					numberUnit=""
+					title="{i18n>Tile.Header.Card}"
+					info="{i18n>Tile.Subheader.Card}"
+					infoState="" />
+			
+</mvc:View>

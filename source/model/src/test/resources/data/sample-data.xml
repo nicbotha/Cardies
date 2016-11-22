@@ -1,0 +1,48 @@
+<dataset>
+	<!-- Channel -->
+	<Channel id="-1" tenant_id="TENANT-01" name="Channel-1" type="EMAIL" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	<Channel id="-2" tenant_id="TENANT-02" name="Channel-2" type="EMAIL" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	<Channel id="-3" tenant_id="TENANT-01" name="Channel-3" type="EMAIL" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	
+	<!-- Channel Attribute -->
+	<ChannelAttribute id="-1" tenant_id="TENANT-01" identifier="ChannelAttribute-1" value="Value1" channelId="-1" type="USERNAME" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	<ChannelAttribute id="-3" tenant_id="TENANT-01" identifier="ChannelAttribute-3" value="Value1" channelId="-3" type="USERNAME" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+
+	<!-- FileResource -->
+	<FileResource id="-1" tenant_id="TENANT-01" name="FileResource-1" description="Short description" docStoreId="uniqueId1" tags="img,doc,xml" type="IMAGE" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	<FileResource id="-10" tenant_id="TENANT-01" name="FileResource-10" description="Short description" docStoreId="uniqueId1" tags="img,doc,xml" type="IMAGE" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	<FileResource id="-11" tenant_id="TENANT-01" name="FileResource-11" description="Short description" docStoreId="uniqueId1" tags="img,doc,xml" type="IMAGE" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	<FileResource id="-12" tenant_id="TENANT-01" name="FileResource-11" description="Short description" docStoreId="uniqueId1" tags="img,doc,xml" type="IMAGE" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	
+	<!-- Template -->
+	<Template id="-1" tenant_id="TENANT-01" name="FileResource-1" description="Short description" resourcelId="-10" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	<Template id="-10" tenant_id="TENANT-01" name="FileResource-10" description="Short description" resourcelId="-11" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	<Template id="-12" tenant_id="TENANT-01" name="FileResource-12" description="Short description" resourcelId="-12" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	
+	<!-- TemplateParameter -->
+	<TemplateParameter id="-1" tenant_id="TENANT-01" name="FileResource-1" description="Short description" templateId="-10" type="TEXT" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	<TemplateParameter id="-12" tenant_id="TENANT-01" name="FileResource-12" description="Short description" templateId="-12" type="TEXT" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	
+	<!-- Person -->
+	<Person id="-1" tenant_id="TENANT-01" name="User-01" email="user1@email.com" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	<Person id="-5" tenant_id="TENANT-01" name="User-05" email="user1@email.com" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	<Person id="-6" tenant_id="TENANT-01" name="User-06" email="user1@email.com" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	
+	<!-- Card -->
+	<Card id="-1" tenant_id="TENANT-01" name="Card-01" publishDate="2016-01-01" templateId="-12" channelId="-3" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	<Card id="-5" tenant_id="TENANT-01" name="Card-05" publishDate="2016-01-01" templateId="-12" channelId="-3" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	<Card id="-6" tenant_id="TENANT-01" name="Card-06" publishDate="2016-01-01" templateId="-12" channelId="-3" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	
+	<!-- CardParameter -->
+	<CardParameter id="-1" tenant_id="TENANT-01" value="CardParam-1" templateParameterId="-12" cardId="-1" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	
+	<!-- CardReceivers (CARD - PERSON) -->
+	<CardReceivers cardId="-1" personId="-1"/>
+	<CardReceivers cardId="-5" personId="-5"/>
+	<CardReceivers cardId="-6" personId="-5"/>
+	<CardReceivers cardId="-6" personId="-6"/>
+</dataset>
+
+
+	
+   

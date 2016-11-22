@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:sm="cardies.adminapp.common">
+	<VBox class="sapUiSmallMargin">
+		<Panel width="auto">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>FileResource.selectFile}" />
+				</Toolbar>
+			</headerToolbar>
+			<FlexBox alignItems="Start" justifyContent="Center">
+				<VBox>
+					<sm:FileResourceUploader id="fileUpload" uploadOnChange="true" uploadUrl="/web/fileresource" sendXHR="true" useMultipart="false" uploadComplete="handleUploadComplete" />
+					<Image id="previewImgId" height="300px" width="300px" visible="false"/>
+					<Link id="previewLinkId" target="_blank" visible="false"/>
+				</VBox>
+			</FlexBox>
+		</Panel>
+		<Panel width="auto">
+		<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>FileResource.metadata}" />
+				</Toolbar>
+			</headerToolbar>
+			<f:SimpleForm id="editForm" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4" emptySpanL="1" emptySpanM="1" columnsL="1" columnsM="1" class="editableForm">
+				<f:content>
+					<Label text="{i18n>FileResource.name}" />
+					<Input id="Name" value="{Name}" />
+					<Label text="{i18n>FileResource.description}" />
+					<Input id="Description" value="{Description}" />
+					<Label text="{i18n>FileResource.tags}" />
+					<Input id="Tags" value="{Tags}" />
+				</f:content>
+			</f:SimpleForm>
+		</Panel>
+	</VBox>
+</core:FragmentDefinition>

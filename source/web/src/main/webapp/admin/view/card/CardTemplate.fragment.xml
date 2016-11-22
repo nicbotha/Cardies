@@ -1,0 +1,74 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+	<VBox class="sapUiSmallMargin">
+		<Panel width="auto">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>Card.title.template}" />
+				</Toolbar>
+			</headerToolbar>
+			<FlexBox alignItems="Start" justifyContent="Center">
+				<VBox>
+					<Input value="{Card>/Template/Name}" id="CardTemplate" placeholder="{i18n>Card.template}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onChangeTemplatePress" visible="{path: 'stateModel>/editState', formatter: '.enableControl'}"/>
+					<Link id="previewLinkId" target="_blank" href="/web/template?ID={Card>/Template/ID}" text="{i18n>Label.Preview}" visible="{path: 'stateModel>/editState', formatter: '.disableControl'}"/>
+				</VBox>
+			</FlexBox>
+		</Panel>
+		<Panel width="auto" visible="{path: 'stateModel>/editState', formatter: '.disableControl'}" expandable="true" expanded="false">
+		<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>Card.title.template.info}" />
+				</Toolbar>
+			</headerToolbar>
+			<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+				<f:content>
+					<Label text="{i18n>Template.name}" />
+					<Text text="{Card>/Template/Name}" />
+					<Label text="{i18n>Template.description}" />
+					<Text text="{Card>/Template/Description}" />
+				</f:content>
+			</f:SimpleForm>
+		</Panel>
+		<Panel width="auto" expandable="true" expanded="false">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>Card.title.parameter}" />
+				</Toolbar>
+			</headerToolbar>
+			<Table items="{Card>/CardParameters}" >
+				<columns>
+					<Column width="30%">
+						<Label text="{i18n>CardParameter.name}"/>
+					</Column>
+					<Column width="25%">
+						<Label text="{i18n>CardParameter.description}" />
+					</Column>
+					<Column width="20%">
+						<Label text="{i18n>CardParameter.value}" />
+					</Column>
+					<Column width="20%">
+						<Label text="{i18n>CardParameter.type}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<HBox>
+								<Text text="{Card>TemplateParameter/Name}" visible="true" />
+							</HBox>
+							<HBox>
+								<Text text="{Card>TemplateParameter/Description}" visible="true"/>
+							</HBox>
+							<HBox>
+								<Text text="{Card>Value}" visible="{path: 'stateModel>/editState', formatter: '.disableControl'}"/>
+								<Input value="{path:'Card>Value', type: 'sap.ui.model.type.String', constraints:{maxLength:250}}" visible="{path: 'stateModel>/editState', formatter: '.enableControl'}" placeholder="{i18n>CardParameter.value.size}"/>
+							</HBox>
+							<HBox>
+								<Text text="{Card>TemplateParameter/Type}" visible="true"/>
+							</HBox>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</Panel>
+	</VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,428 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>au.cardies</groupId>
+		<artifactId>root</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<local.server.port>8883</local.server.port>
+		<local.server.path>/web</local.server.path>
+		<local.server.stop-port>8892</local.server.stop-port>
+		<jetty.env.xml>src/test/resources/jetty-env.xml</jetty.env.xml>
+	</properties>
+
+	<artifactId>web</artifactId>
+	<name>web</name>
+	<packaging>war</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>model</artifactId>
+			<version>${project.version}</version>
+			<type>test-jar</type>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>au.project</groupId>
+			<artifactId>shared</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- General (Loggin, Commons) -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sap.cloud</groupId>
+			<artifactId>neo-java-web-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<!-- required because of auto detection of web facet 2.5 -->
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.olingo</groupId>
+			<artifactId>odata-server-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.olingo</groupId>
+			<artifactId>odata-server-core</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.olingo</groupId>
+			<artifactId>odata-commons-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.olingo</groupId>
+			<artifactId>odata-commons-core</artifactId>
+		</dependency>
+
+		<!-- JSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+		</dependency>
+
+		<!-- Scheduling -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>javax.mail-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+		</dependency>
+
+		<!-- Test -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>hamcrest-core</artifactId>
+					<groupId>org.hamcrest</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-maven-plugin</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-failsafe-plugin</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.jayway.restassured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derbyclient</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<!-- ********************** -->
+	<!-- START INTEGRATION TEST -->
+	<profiles>
+		<profile>
+			<id>integration-test</id>
+
+			<dependencies>
+				<dependency>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-simple</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-lang3</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-collections4</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>com.sap.cloud</groupId>
+					<artifactId>neo-java-web-api</artifactId>
+				</dependency>
+
+				<dependency>
+					<!-- required because of auto detection of web facet 2.5 -->
+					<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+					<scope>provided</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-webmvc</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.apache.olingo</groupId>
+					<artifactId>odata-server-api</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.apache.olingo</groupId>
+					<artifactId>odata-server-core</artifactId>
+					<scope>runtime</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>org.apache.olingo</groupId>
+					<artifactId>odata-commons-api</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.apache.olingo</groupId>
+					<artifactId>odata-commons-core</artifactId>
+				</dependency>
+
+				<!-- Test -->
+				<dependency>
+					<groupId>org.hamcrest</groupId>
+					<artifactId>hamcrest-all</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>junit</groupId>
+					<artifactId>junit</artifactId>
+					<exclusions>
+						<exclusion>
+							<artifactId>hamcrest-core</artifactId>
+							<groupId>org.hamcrest</groupId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+
+				<dependency>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-test</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.eclipse.jetty</groupId>
+					<artifactId>jetty-maven-plugin</artifactId>
+					<scope>test</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<scope>test</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>com.jayway.restassured</groupId>
+					<artifactId>rest-assured</artifactId>
+					<scope>test</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-dbcp2</artifactId>
+					<scope>test</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>org.apache.derby</groupId>
+					<artifactId>derby</artifactId>
+					<scope>test</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>org.apache.derby</groupId>
+					<artifactId>derbyclient</artifactId>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+
+			<build>
+				<finalName>web</finalName>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.jetty</groupId>
+						<artifactId>jetty-maven-plugin</artifactId>
+						<version>9.2.8.v20150217</version>
+						<configuration>
+							<scanIntervalSeconds>10</scanIntervalSeconds>
+							<stopKey>stop</stopKey>
+							<stopPort>9999</stopPort>
+							<stopWait>2</stopWait>
+							<webApp>
+								<contextPath>/web</contextPath>
+								<jettyEnvXml>${project.basedir}/${jetty.env.xml}</jettyEnvXml>
+							</webApp>
+							<httpConnector>
+								<port>7777</port>
+							</httpConnector>
+						</configuration>
+						<executions>
+							<execution>
+								<id>start-jetty</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>start</goal>
+								</goals>
+								<configuration>
+									<scanIntervalSeconds>0</scanIntervalSeconds>
+								</configuration>
+							</execution>
+							<execution>
+								<id>stop-jetty</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>stop</goal>
+								</goals>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>org.eclipse.jetty</groupId>
+								<artifactId>jetty-util</artifactId>
+								<version>9.2.8.v20150217</version>
+							</dependency>
+							<dependency>
+								<groupId>org.apache.commons</groupId>
+								<artifactId>commons-dbcp2</artifactId>
+								<version>2.1.1</version>
+							</dependency>
+							<dependency>
+								<groupId>com.sap.cloud</groupId>
+								<artifactId>neo-java-web-api</artifactId>
+								<version>3.12.4.3</version>
+							</dependency>
+							<dependency>
+								<groupId>org.apache.derby</groupId>
+								<artifactId>derby</artifactId>
+								<version>10.12.1.1</version>
+							</dependency>
+
+							<dependency>
+								<groupId>org.apache.derby</groupId>
+								<artifactId>derbyclient</artifactId>
+								<version>10.12.1.1</version>
+							</dependency>
+							<dependency>
+								<groupId>au.stickman</groupId>
+								<artifactId>hcp-lib</artifactId>
+								<version>1.0-SNAPSHOT</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<version>2.17</version>
+						<configuration>
+							<excludes>
+								<exclude>**/*Test.java</exclude>
+							</excludes>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>integration-test</goal>
+									<goal>verify</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<!-- END INTEGRATION TEST -->
+	<!-- ******************** -->
+	<build>
+		<finalName>web</finalName>
+	</build>
+</project>

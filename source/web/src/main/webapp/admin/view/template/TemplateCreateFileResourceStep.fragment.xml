@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+	<form:SimpleForm editable="true">
+		<form:content>
+			<Label text="{i18n>Template.fileresource}" required="true" />
+			<Input value="{/Template/FileResource}" valueStateText="{i18n>Template.fileresource}" valueState="{/TemplateFileResourceState}" id="TemplateFileResource" liveChange="templateFileResourceValidation" placeholder="{i18n>Template.fileresource}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleFileResourceRequest"/>
+		</form:content>
+	</form:SimpleForm>
+</core:FragmentDefinition>

@@ -1,0 +1,47 @@
+<core:FragmentDefinition 
+	xmlns="sap.m" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:core="sap.ui.core" 
+	xmlns:u="sap.ui.unified"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+		
+		<Panel width="auto" expandable="true" expanded="true">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>Card.title.receivers}" />
+				</Toolbar>
+			</headerToolbar>
+			<Table id="tblCardPersons" items="{Card>/Persons}" >
+				<headerToolbar>
+					<OverflowToolbar visible="{path: 'stateModel>/editState', formatter: '.enableControl'}">
+						<ToolbarSpacer/>
+						<OverflowToolbarButton type="Transparent" text="Add" icon="sap-icon://add" press="onAddReceiverPress"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="30%">
+						<Label text="{i18n>Person.name}"/>
+					</Column>
+					<Column width="20%">
+						<Label text="{i18n>Person.email}" />
+					</Column>
+					<Column width="5%"/>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<HBox>
+								<Text text="{Card>Name}"/>
+							</HBox>
+							<HBox>
+								<Text text="{Card>Email}"/>
+							</HBox>
+							<HBox>
+								<core:Icon src="sap-icon://delete" visible="{path: 'stateModel>/editState', formatter: '.enableControl'}" press="onDeleteReceiverPress" app:personid="{Card>ID}"/>
+							</HBox>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</Panel>
+</core:FragmentDefinition>

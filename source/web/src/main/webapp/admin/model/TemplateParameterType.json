@@ -1,0 +1,23 @@
+{
+	"items":[
+	         {
+	        	 "key":"TEXT",
+	        	 "text":"TEXT"
+	         },{
+	        	 "key":"BOOLEAN",
+	        	 "text":"BOOLEAN"
+	         },{
+	        	 "key":"INT",
+	        	 "text":"NUMERIC"
+	         },{
+	        	 "key":"MULTISELECT",
+	        	 "text":"MULTISELECT"
+	         },{
+	        	 "key":"COMBO",
+	        	 "text":"COMBO"
+	         }, {
+	         	"key": "ATTACHMENT",
+	         	"text": "ATTACHMENT"
+	         }
+         ]
+}

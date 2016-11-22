@@ -1,0 +1,58 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:t="sap.ui.table">
+	<form:SimpleForm editable="true">
+		<form:content>
+			<Table id="tblTemplateParameters" items="{/Template/TemplateParameters}">
+				<headerToolbar>
+					<OverflowToolbar visible="true">
+						<ToolbarSpacer/>
+						<OverflowToolbarButton type="Transparent" text="Add" icon="sap-icon://add" press="addParameterEntry"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="30%">
+						<Label text="{i18n>TemplateParameter.name}" required="true"/>
+					</Column>
+					<Column width="25%">
+						<Label text="{i18n>TemplateParameter.description}" />
+					</Column>
+					<Column width="20%">
+						<Label text="{i18n>TemplateParameter.defaultvalue}" />
+					</Column>
+					<Column width="20%">
+						<Label text="{i18n>TemplateParameter.type}" required="true"/>
+					</Column>
+					<Column width="5%"/>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<HBox>
+								<Text text="{Name}" visible="{path: 'saveNew', formatter: '.disableTableControl'}" />
+								<Input value="{path:'Name', type: 'sap.ui.model.type.String', constraints:{maxLength:50}}" visible="{path: 'saveNew', formatter: '.enableTableControl'}" placeholder="{i18n>TemplateParameter.name.size}"/>
+							</HBox>
+							<HBox>
+								<Text text="{Description}" visible="{path: 'saveNew', formatter: '.disableTableControl'}" />
+								<Input value="{path:'Description', type: 'sap.ui.model.type.String', constraints:{maxLength:250}}" visible="{path: 'saveNew', formatter: '.enableTableControl'}" placeholder="{i18n>TemplateParameter.description.size}"/>
+							</HBox>
+							<HBox>
+								<Text text="{DefaultValues}" visible="{path: 'saveNew', formatter: '.disableTableControl'}" />
+								<Input value="{path:'DefaultValues', type: 'sap.ui.model.type.String', constraints:{maxLength:250}}" visible="{path: 'saveNew', formatter: '.enableTableControl'}" placeholder="{i18n>TemplateParameter.defaultvalue.size}"/>
+							</HBox>
+							<HBox>
+								<Text text="{Type}" visible="{path: 'saveNew', formatter: '.disableTableControl'}" />
+								<ComboBox items="{parameterTypes>/items}" selectedKey="{Type}" visible="{path: 'saveNew', formatter: '.enableTableControl'}">
+									<items>
+										<core:Item key="{parameterTypes>key}" text="{parameterTypes>text}" />
+									</items>
+								</ComboBox>
+							</HBox>
+							<HBox>
+								<core:Icon src="sap-icon://delete" visible="{path: 'removeNew', formatter: '.enableTableControl'}" press="removeParameterEntry" />
+							</HBox>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</form:content>
+	</form:SimpleForm>
+</core:FragmentDefinition>

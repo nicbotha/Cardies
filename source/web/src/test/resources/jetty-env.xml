@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+	<!-- an XADataSource -->
+	<New id="mydatasource99" class="org.eclipse.jetty.plus.jndi.Resource">
+		<Arg>jdbc/DefaultDB</Arg>
+		<Arg>
+			<New class="org.apache.commons.dbcp2.BasicDataSource">
+				<Set name="driverClassName">org.apache.derby.jdbc.EmbeddedDriver</Set>
+				<Set name="url">jdbc:derby:memory:tmpDB;create=true</Set>
+				<Set name="username">demo</Set>
+				<Set name="password">demo</Set>
+				<Set name="poolPreparedStatements">true</Set>
+				<Set name="defaultAutoCommit">true</Set>
+				<Set name="testOnBorrow">true</Set>
+			</New>
+		</Arg>
+	</New>
+	<New id="TenantCTX" class="org.eclipse.jetty.plus.jndi.Resource">
+		<Arg></Arg>
+		<Arg>TenantContext</Arg>
+		<Arg>
+			<New class="au.stickman.TenantContextImpl">
+			</New>
+		</Arg>
+	</New>
+</Configure>
+

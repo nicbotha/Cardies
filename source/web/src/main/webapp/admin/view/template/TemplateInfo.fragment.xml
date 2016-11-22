@@ -1,0 +1,27 @@
+<core:FragmentDefinition 
+	xmlns="sap.m" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form" 
+	xmlns:core="sap.ui.core" 
+	xmlns:u="sap.ui.unified"
+	xmlns:smartField="sap.ui.comp.smartfield">
+	<VBox class="sapUiSmallMargin">
+		<Panel width="auto">
+		<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>Template.title.info}" />
+				</Toolbar>
+			</headerToolbar>
+			<f:SimpleForm maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4" emptySpanL="1" emptySpanM="1" columnsL="1" columnsM="1">
+				<f:content>
+				<Label text="" />
+				<Link id="templatePreviewLinkId" target="_blank" href="/web/template?ID={Template>/ID}" text="{i18n>Label.Preview}" visible="{path: 'stateModel>/editState', formatter: '.disableControl'}"/>
+					<Label text="{i18n>Template.name}" />
+					<Input value="{path:'Template>/Name', type: 'sap.ui.model.type.String', constraints:{maxLength:50}}" id="txtTemplateName" editable="{path: 'stateModel>/editState', formatter: '.enableControl'}" placeholder="{i18n>Template.name.size}"/>
+					<Label text="{i18n>Template.description}" />
+					<Input value="{path:'Template>/Description', type: 'sap.ui.model.type.String', constraints:{maxLength:250}}" id="txtTemplateDescription" editable="{path: 'stateModel>/editState', formatter: '.enableControl'}"/>
+				</f:content>
+			</f:SimpleForm>
+		</Panel>
+	</VBox>
+</core:FragmentDefinition>
