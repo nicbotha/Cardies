@@ -1,8 +1,8 @@
 # Cardies
-This application sends out Cards (birthday, Christmas etc) based on user uploaded templates. 
+This SAP HANA Cloud Platform application sends out Cards (birthday, Christmas etc) based on user managed templates. It consists of a Java based server component providing OData V4 service API to a SAPUI5 frontend.
 
-Clean install using Maven
-'mvn clean install -Dspring.profiles.active="test"'
+## Build and deploy
+Clean install using Maven 'mvn clean install -Dspring.profiles.active="test"'
 
 HCP Local
 'mvn clean install neo-java-web:deploy-local -Dspring.profiles.active="test"'
@@ -21,6 +21,7 @@ mongod.exe -dbpath [path]
 - DBUnit tests running with Derby
 - Spring profiles to switch between test/dev/prod datasources
 - Uploaded and manage template static content via UI5 application
+- Generate content using Freemarker templating engine
 
 ### Technologies & Libraries
 - JPA EclipseLink 
